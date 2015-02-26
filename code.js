@@ -1,0 +1,1 @@
+/* js code for AngularJS project */
