@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app='productsTable'>
 <head>
   <meta charset="UTF-8">
   <title>Products</title>
@@ -7,7 +7,11 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body ng-controller='FilterableTableController as ftable'>
+
+  <div ng-repeat='product in ftable.products'>
+    <p>{{product.name}}<span class='pull-right'>{{product.price}}</span></p>
+  </div>
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="code.js"></script>
