@@ -7,10 +7,15 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-controller='FilterableTableController as ftable'>
+<body>
 
-  <div ng-repeat='product in ftable.products'>
-    <p>{{product.name}}<span class='pull-right'>{{product.price}}</span></p>
+  <div ng-controller='FilterableTableController as ftable' class='well filterable-table'>
+    <div class='search-bar'>
+      <!-- ... -->
+    </div>
+    <div class='products-table' ng-repeat='product in ftable.products'>
+      <p>{{product.name}}<span class='pull-right'>{{product.price}}</span></p>
+    </div>
   </div>
 
   <script src="bower_components/angular/angular.js"></script>
