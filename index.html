@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <div ng-controller='FilterableTableController as ftable' class='well filterable-table'>
+  <div ng-controller='FilterableTableController' class='well filterable-table'>
 
     <div class='search-bar'>
       <!-- ... -->
@@ -21,7 +21,7 @@
       </thead>
 
       <tbody><!-- products-table -->
-        <tr ng-repeat='product in ftable.products'>
+        <tr ng-repeat='product in products'>
           <td>{{product.name}}</td>
           <td><span className="pull-right">{{product.price}}</span></td>
         </tr>

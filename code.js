@@ -2,9 +2,14 @@
 
   angular.module('productsTable', [])
 
-  .controller('FilterableTableController', function(){
-    this.products = data;
-    this.lastCategory = null;
+  .controller('FilterableTableController', function($scope){
+    $scope.products = data;
+    var lastCategory = null;
+    $scope.isNewCategoryFor = function(product) {
+      var result = lastCategory !== product.category;
+      if (result) { lastCategory = product.category; }
+      return result;
+    };
   });
 
 
