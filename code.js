@@ -1,9 +1,10 @@
 (function() {
 
-  var app = angular.module('productsTable', []);
+  angular.module('productsTable', [])
 
-  app.controller('FilterableTableController', function(){
+  .controller('FilterableTableController', function(){
     this.products = data;
+    this.lastCategory = null;
   });
 
 
