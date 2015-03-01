@@ -13,6 +13,13 @@
       $scope.rows.push({product: true, name: product.name, price: product.price});
     });
     // console.log(JSON.stringify($scope.rows));
+  })
+  .directive('productsTable', function(){
+    return {
+      resctrict: 'E',
+      replace: true,
+      templateUrl: 'templates/directives/products-table.html'
+    };
   });
 
 
