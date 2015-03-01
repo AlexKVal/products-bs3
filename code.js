@@ -12,7 +12,7 @@
       }
       $scope.rows.push({product: true, name: product.name, price: product.price});
     });
-    console.log(JSON.stringify($scope.rows));
+    // console.log(JSON.stringify($scope.rows));
   });
 
 
