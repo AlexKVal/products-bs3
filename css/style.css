@@ -2,6 +2,9 @@
   margin: 10px;
   width: 270px;
 }
+.category-name {
+  color: darkorange;
+}
 label:hover {
   background-color: lightgrey;
 }
