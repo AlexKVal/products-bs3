@@ -3,14 +3,18 @@
   angular.module('productsTable', [])
 
   .controller('FilterableTableController', function($scope){
-    var lastCategory = null;
-    $scope.rows = [];
+    var lastCategory = {name: null};
+    $scope.categories = [];
+
     data.forEach(function(product){
-      if (lastCategory !== product.category) {
-        $scope.rows.push({category: true, name: product.category});
-        lastCategory = product.category;
+      if (lastCategory.name !== product.category) { // new category
+        var newCategory = { name: product.category, products: [product]};
+
+        $scope.categories.push(newCategory);
+        lastCategory = newCategory;
+      } else {
+        lastCategory.products.push(product);
       }
-      $scope.rows.push({product: true, name: product.name, price: product.price});
     });
     // console.log(JSON.stringify($scope.rows));
   })

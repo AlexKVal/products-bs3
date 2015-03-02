@@ -3,16 +3,16 @@
     <tr><th>Name</th><th><span className="pull-right">Price</span></th></tr>
   </thead>
 
-  <tbody>
-    <tr ng-if='row.category' ng-repeat-start='row in rows'>
+  <tbody ng-repeat='category in categories'>
+    <tr>
       <th
         className="bg-warning text-center"
-        colSpan="2">{{row.name}}
+        colSpan="2">{{category.name}}
       </th>
     </tr>
-    <tr ng-if='row.product' ng-repeat-end>
-      <td>{{row.name}}</td>
-      <td><span className="pull-right">{{row.price}}</span></td>
+    <tr ng-repeat='product in category.products'>
+      <td>{{product.name}}</td>
+      <td><span className="pull-right">{{product.price}}</span></td>
     </tr>
   </tbody>
 
