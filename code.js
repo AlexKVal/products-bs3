@@ -7,7 +7,15 @@
       restrict: 'E',
       replace: true,
       transclude: true,
-      template: "<div class='well filterable-table' ng-transclude></div>",
+      template: "<div class='well filterable-table' ng-transclude></div>"
+    };
+  })
+
+  .directive('productsTable', function(){
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'templates/directives/products-table.html',
       link: function(scope, element, attrs){
         scope.categories = [];
 
@@ -24,14 +32,6 @@
         });
         // console.log(JSON.stringify(scope.categories));
       }
-    };
-  })
-
-  .directive('productsTable', function(){
-    return {
-      restrict: 'E',
-      replace: true,
-      templateUrl: 'templates/directives/products-table.html'
     };
   })
 
