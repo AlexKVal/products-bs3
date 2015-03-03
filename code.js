@@ -7,7 +7,16 @@
       restrict: 'E',
       replace: true,
       transclude: true,
-      template: "<div class='well filterable-table' ng-transclude></div>"
+      template: "<div class='well filterable-table' ng-transclude></div>",
+      controller: function($scope){
+        this.setStockedFilter = function(state){
+          if (state) {
+            $scope.prodFilter = {stocked: true};
+          } else {
+            $scope.prodFilter = {};
+          }
+        };
+      }
     };
   })
 
@@ -42,7 +51,14 @@
     return {
       restrict: 'E',
       replace: true,
-      templateUrl: 'templates/directives/search-bar.html'
+      templateUrl: 'templates/directives/search-bar.html',
+      require: '^filterableTable',
+      link: function(scope, element, attrs, filterableTable){
+        scope.filterStocked = function(){
+          console.log('click');
+          filterableTable.setStockedFilter(scope.stockedOn);
+        };
+      }
     };
   })
 

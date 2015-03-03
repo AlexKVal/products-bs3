@@ -2,7 +2,7 @@
   <input ng-model="search.$" type="search" class="form-control" placeholder="Search..."/>
   <div class="checkbox">
     <label>
-      <input type="checkbox"> Only show products in stock
+      <input type="checkbox" ng-model="stockedOn" ng-change="filterStocked()"> Only show products in stock
     </label>
   </div>
 </form>
