@@ -11,7 +11,7 @@
     };
   })
 
-  .directive('productsTable', function(){
+  .directive('productsTable', function(Product){
     return {
       restrict: 'E',
       replace: true,
@@ -20,7 +20,7 @@
         scope.categories = [];
 
         var lastCategory = {name: null};
-        data.forEach(function(product){
+        Product.all().forEach(function(product){
           if (lastCategory.name !== product.category) { // new category
             var newCategory = { name: product.category, products: [product]};
 
@@ -41,10 +41,18 @@
       replace: true,
       templateUrl: 'templates/directives/search-bar.html'
     };
-  });;
+  })
+
+  .factory('Product', function ProductFactory(){
+    return {
+      all: function() {
+        return glVarData;
+      }
+    };
+  });
 
 
-  var data = [
+  var glVarData = [
     {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
     {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
     {category: "Sporting Goods", price: "$29.99", stocked: false, name: "Basketball"},
