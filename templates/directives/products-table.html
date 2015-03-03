@@ -11,7 +11,7 @@
       </th>
     </tr>
     <tr ng-repeat='product in category.products'>
-      <td><span ng-style="product.stocked || {color:'darkorange'}">{{product.name}}</span></td>
+      <td><span ng-style="product.stocked ? {} : {color:'darkorange'}">{{product.name}}</span></td>
       <td><span class="pull-right">{{product.price}}</span></td>
     </tr>
   </tbody>
