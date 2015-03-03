@@ -15,6 +15,9 @@
     return {
       restrict: 'E',
       replace: true,
+      scope: {
+        productsFilter: '='
+      },
       templateUrl: 'templates/directives/products-table.html',
       link: function(scope, element, attrs){
         scope.categories = [];
