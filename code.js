@@ -2,25 +2,34 @@
 
   angular.module('productsTable', [])
 
-  .controller('FilterableTableController', function($scope){
-    var lastCategory = {name: null};
-    $scope.categories = [];
+  .directive('filterableTable', function(){
+    return {
+      restrict: 'E',
+      replace: true,
+      transclude: true,
+      template: "<div class='well filterable-table' ng-transclude></div>",
+      controller: function($scope){
+        var lastCategory = {name: null};
+        $scope.categories = [];
 
-    data.forEach(function(product){
-      if (lastCategory.name !== product.category) { // new category
-        var newCategory = { name: product.category, products: [product]};
+        data.forEach(function(product){
+          if (lastCategory.name !== product.category) { // new category
+            var newCategory = { name: product.category, products: [product]};
 
-        $scope.categories.push(newCategory);
-        lastCategory = newCategory;
-      } else {
-        lastCategory.products.push(product);
+            $scope.categories.push(newCategory);
+            lastCategory = newCategory;
+          } else {
+            lastCategory.products.push(product);
+          }
+        });
+        console.log(JSON.stringify($scope.rows));
       }
-    });
-    // console.log(JSON.stringify($scope.rows));
+    };
   })
+
   .directive('productsTable', function(){
     return {
-      resctrict: 'E',
+      restrict: 'E',
       replace: true,
       templateUrl: 'templates/directives/products-table.html'
     };
