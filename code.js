@@ -33,7 +33,15 @@
       replace: true,
       templateUrl: 'templates/directives/products-table.html'
     };
-  });
+  })
+
+  .directive('searchBar', function(){
+    return {
+      restrict: 'E',
+      replace: true,
+      templateUrl: 'templates/directives/search-bar.html'
+    };
+  });;
 
 
   var data = [
