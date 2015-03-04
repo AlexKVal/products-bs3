@@ -1,8 +1,19 @@
 <form>
-  <input ng-model="search.$" ng-change="searchTextChanged()" type="search" class="form-control" placeholder="Search..."/>
+  <input
+    ng-model="search.$"
+    ng-change="searchTextChanged()"
+    type="search"
+    class="form-control"
+    placeholder="Search..."
+  >
   <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="stockedOn" ng-change="filterStocked()"> Only show products in stock
+      <input
+        type="checkbox"
+        ng-model="stockedOn"
+        ng-change="filterStocked()"
+      >
+      Only show products in stock
     </label>
   </div>
 </form>
