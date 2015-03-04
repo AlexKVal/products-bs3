@@ -1,9 +1,7 @@
 #### It's an AngularJS version of [AlexKVal/react-thinking](https://github.com/AlexKVal/react-thinking/)
 
-#    > For now it's WIP <
-
 Frameworks used:
-- Bootstrap
+- Bootstrap (CSS only)
 - AngularJS
 
 In console run:
