@@ -10,7 +10,7 @@
         colSpan="2"><span class="category-name">{{category.name}}</span>
       </th>
     </tr>
-    <tr ng-repeat='product in category.products | filter: productsFilter'>
+    <tr ng-repeat='product in category.products | filter: searchFilter | filter: productsFilter'>
       <td><span ng-style="product.stocked ? {} : {color:'darkorange'}">{{product.name}}</span></td>
       <td><span class="pull-right">{{product.price}}</span></td>
     </tr>

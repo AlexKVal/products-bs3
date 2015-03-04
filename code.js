@@ -16,6 +16,9 @@
             $scope.prodFilter = {};
           }
         };
+        this.setSearchFilter = function(search){
+          $scope.searchText = search;
+        };
       }
     };
   })
@@ -25,7 +28,8 @@
       restrict: 'E',
       replace: true,
       scope: {
-        productsFilter: '='
+        productsFilter: '=',
+        searchFilter: "="
       },
       templateUrl: 'templates/directives/products-table.html',
       link: function(scope, element, attrs){
@@ -55,8 +59,10 @@
       require: '^filterableTable',
       link: function(scope, element, attrs, filterableTable){
         scope.filterStocked = function(){
-          console.log('click');
           filterableTable.setStockedFilter(scope.stockedOn);
+        };
+        scope.searchTextChanged = function(){
+          filterableTable.setSearchFilter(scope.search);
         };
       }
     };
