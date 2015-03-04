@@ -7,19 +7,7 @@
       restrict: 'E',
       replace: true,
       transclude: true,
-      template: "<div class='well filterable-table' ng-transclude></div>",
-      controller: function($scope){
-        this.setStockedFilter = function(state){
-          if (state) {
-            $scope.prodFilter = {stocked: true};
-          } else {
-            $scope.prodFilter = {};
-          }
-        };
-        this.setSearchFilter = function(search){
-          $scope.searchText = search;
-        };
-      }
+      template: "<div class='well filterable-table' ng-transclude></div>"
     };
   })
 
@@ -27,10 +15,6 @@
     return {
       restrict: 'E',
       replace: true,
-      scope: {
-        productsFilter: '=',
-        searchFilter: "="
-      },
       templateUrl: 'templates/directives/products-table.html',
       link: function(scope, element, attrs){
         scope.categories = [];
@@ -55,16 +39,7 @@
     return {
       restrict: 'E',
       replace: true,
-      templateUrl: 'templates/directives/search-bar.html',
-      require: '^filterableTable',
-      link: function(scope, element, attrs, filterableTable){
-        scope.filterStocked = function(){
-          filterableTable.setStockedFilter(scope.stockedOn);
-        };
-        scope.searchTextChanged = function(){
-          filterableTable.setSearchFilter(scope.search);
-        };
-      }
+      templateUrl: 'templates/directives/search-bar.html'
     };
   })
 

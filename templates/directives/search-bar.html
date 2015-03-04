@@ -1,7 +1,6 @@
 <form>
   <input
-    ng-model="search.$"
-    ng-change="searchTextChanged()"
+    ng-model="searchFilter"
     type="search"
     class="form-control"
     placeholder="Search..."
@@ -9,9 +8,8 @@
   <div class="checkbox">
     <label>
       <input
+        ng-model="productsFilter"
         type="checkbox"
-        ng-model="stockedOn"
-        ng-change="filterStocked()"
       >
       Only show products in stock
     </label>
